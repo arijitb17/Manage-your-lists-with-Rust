@@ -11,10 +11,11 @@ export default function Home() {
   const [currentPage, setCurrentPage] = useState(1);
 
   const TODOS_PER_PAGE = 5;
+  
+  const API_BASE_URL = "https://manage-your-lists-with-rust.onrender.com";
 
   useEffect(() => {
     fetchTodos();
-    // Toggle dark mode on body element
     if (darkMode) {
       document.body.classList.add("dark");
       document.body.classList.remove("light");
@@ -26,7 +27,7 @@ export default function Home() {
 
   const fetchTodos = async () => {
     try {
-      const response = await axios.get("http://127.0.0.1:8080/todos");
+      const response = await axios.get(`${API_BASE_URL}/todos`);
       setTodos(response.data);
     } catch (error) {
       console.error(error);
@@ -38,14 +39,14 @@ export default function Home() {
 
     try {
       if (editIndex === -1) {
-        const response = await axios.post("http://127.0.0.1:8080/todos", {
+        const response = await axios.post(`${API_BASE_URL}/todos`, {
           title: todoInput,
           completed: false,
         });
         setTodos(response.data);
       } else {
         const id = todos[editIndex].id;
-        const response = await axios.put(`http://127.0.0.1:8080/todos/${id}`, {
+        const response = await axios.put(`${API_BASE_URL}/todos/${id}`, {
           title: todoInput,
         });
         const updated = [...todos];
@@ -61,7 +62,7 @@ export default function Home() {
 
   const deleteTodo = async (id) => {
     try {
-      await axios.delete(`http://127.0.0.1:8080/todos/${id}`);
+      await axios.delete(`${API_BASE_URL}/todos/${id}`);
       fetchTodos();
     } catch (error) {
       console.error(error);
@@ -121,7 +122,7 @@ export default function Home() {
           {paginatedTodos.map((todo, index) => (
             <li
               key={todo.id}
-              className={`todo-item ${darkMode ? "dark" : ""}`} // Add dark class here
+              className={`todo-item ${darkMode ? "dark" : ""}`} 
             >
               <span>{todo.title}</span>
               <span className="todo-date">{new Date(todo.created_at).toLocaleString()}</span>
