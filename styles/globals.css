@@ -1,0 +1,205 @@
+/* Global styles for light and dark modes */
+body {
+  font-family: Arial, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 0;
+  padding: 0;
+}
+
+body.light {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+body.dark {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+/* Container styles */
+.container {
+  padding: 15px; /* Reduced padding to reduce gap */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  transition: background-color 0.3s, color 0.3s;
+  margin-top: 0; /* Removed top margin */
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px; /* Reduced gap between controls */
+  margin-bottom: 15px; /* Reduced bottom margin */
+}
+
+.search-darkmode {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.controls input,
+.todo-input-row input {
+  padding: 8px; /* Reduced padding */
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: inherit;
+  color: inherit;
+  width: 100%;
+  max-width: 250px;
+}
+
+.dark-mode-toggle {
+  padding: 8px; /* Reduced padding */
+  border-radius: 5px;
+  border: none;
+  background-color: inherit;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dark-mode-toggle svg {
+  font-size: 20px;
+}
+
+/* Todo Input and Button */
+.todo-input-row {
+  display: flex;
+  gap: 8px; /* Reduced gap between input and button */
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-input-row input {
+  padding: 8px; /* Reduced padding */
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: inherit;
+  color: inherit;
+  width: 200px;
+}
+
+.todo-input-row button {
+  padding: 8px; /* Reduced padding */
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.todo-input-row button:hover {
+  background-color: #0056b3;
+}
+
+/* Todo List Container */
+.todo-list-container {
+  width: 100%;
+  max-width: 600px;
+  padding: 15px; /* Reduced padding */
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background-color: inherit;
+  margin-top: 20px; /* Reduced top margin */
+}
+
+ul.todo-list {
+  list-style: none;
+  padding: 0;
+}
+
+.todo-item {
+  background-color: transparent;
+  margin-bottom: 8px; /* Reduced bottom margin */
+  padding: 10px;
+  border: 2px solid #ddd; /* Light border color */
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.todo-item.dark {
+  background-color: transparent; /* Dark background */
+  color: #fff; /* White text for better contrast */
+  border: 2px solid #444; /* Darker border color for dark mode */
+}
+
+/* Date styling */
+.todo-item .date {
+  font-size: 0.8rem;
+  color: #000;
+  margin-left: 10px;
+}
+
+.todo-item .date.dark {
+  color: #bbb; /* Light gray for date in dark mode */
+}
+
+.actions {
+  display: flex;
+  gap: 8px; /* Reduced gap between action buttons */
+}
+
+.actions svg {
+  cursor: pointer;
+  color: #007bff;
+}
+
+.actions svg:hover {
+  color: #0056b3;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 8px; /* Reduced padding */
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.pagination button:hover {
+  background-color: #0056b3;
+}
+
+.pagination button.active {
+  background-color: #0056b3;
+}
+
+/* Heading styles */
+h1 {
+  font-size: 2.5rem; /* Larger font size for the heading */
+  font-weight: bold; /* Bold text */
+  text-align: center; /* Center the heading */
+  margin-bottom: 10px; /* Reduced space below the heading */
+  padding: 0; /* Removed padding */
+  transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+h1.light {
+  color: #333; /* Dark text for light mode */
+}
+
+h1.dark {
+  color: #fff; /* White text for dark mode */
+}
